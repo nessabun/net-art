@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Really Cool Website</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    
+    <header class="intro">
+        <p class="header">A really cool website</p>
+        <h1>Your consent is our priority.</h1>
+        <p>We use cookies to improve your experience.</p>
+    </header>
+
+    <p class="counter" id="cookie-count">Cookies: 0/5</p>
+
+    <div class="serving" id="serving">
+        <img src="images/plate.png">
+    </div>
+
+    <div class="speech" id="speech"></div>
+    <img class="guy" id="guy" src="images/guy1.png">
+
+    <div class="controls" id="controls" hidden>
+        <button class="accept" id="accept-button" type="button">Accept cookies</button>
+        <button class="decline" id="decline-button" type="button">Decline</button>
+    </div>
+
+    <p class="small-note">Totally standard site data. Definitely not a trap.</p>
+
+    <script src="cookie.js"></script>
 </body>
+
 </html>

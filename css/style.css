@@ -1,0 +1,34 @@
+:root {
+    color-scheme: light;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: #38291f;
+    background: #f6eee3;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    min-height: 100svh;
+    margin: 0;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 50% 44%, #fffaf3 0, #f8f0e5 52%, #efe0ce 100%);
+}
+
+.intro {
+    position: absolute;
+    z-index: 1;
+    top: 7%;
+    left: 50%;
+    width: min(90%, 650px);
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+.header {
+    margin: 0 0 12px;
+    color: #a45b35;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+    text-transform: uppercase;
+}
