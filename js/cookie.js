@@ -109,5 +109,60 @@ if (acceptCount ===7){
 }
 
 function declineCookies(){
-    if (accept)
+    if (acceptCount === 0) {
+        say ("leaving so soon?", "images/guy10.png");
+
+        showDialogue("Are you sure you want to decline?", [
+            {label: "Yes, leave", action: closeBrowser},
+            {label: "No, stay",
+                action: () => {
+                    hideDialogue();
+                    say ("no pressure.", "images/guy3.png");
+                    acceptButton.focus();
+                },
+                primary:true
+            }
+        ]);
+        return;
+    }
+say("thanks for sticking around. wanna head out?", "images/guy1.png");
+showDialogue("heading home?", "Thanks for haanging out! Want to leave the page?"), [
+    {label: "Go home", action: goHome},
+    {label: "Stay",
+        action:() => {
+            hideDialogue();
+            stayedAfterDecline = true;
+            say("cool, make yourself at home.", "images/guy3.png");
+            acceptButton.focus();
+        },
+        primary:true
+    }
+];
+}
+
+function startGame(accept) {
+    consentDialogue.hidden = true;
+    controls.hidden = false;
+
+    if (accept) {
+        acceptCookies();
+    } else {
+        declineCookies();
+    }
+}
+
+function closeBrowser(){
+controls.hidden = true;
+window.close();
+window.setTimeout(() => {
+    showDialogue(
+        "Can't close this tab",
+        "Your browser won't let this page close itself. You can close the tab manually.",
+        [{label:"Got it", action:hideDialogue, primary:true}]
+    );
+}, 150);
+}
+
+function goHome(){
+    window.location.href = "https://www.google.com";
 }

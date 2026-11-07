@@ -14,6 +14,10 @@ body {
     background: radial-gradient(ellipse at 50% 44%, #fffaf3 0, #f8f0e5 52%, #efe0ce 100%);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .intro {
     position: absolute;
     z-index: 1;
@@ -46,6 +50,11 @@ body {
 
 .button:hover {
     transform: translateY(-2px);
+}
+
+button:focus-visible {
+    outline: 3px solid #2b6680;
+    outline-offset: 4px;
 }
 
 h1 {
@@ -89,8 +98,8 @@ h1 {
     background: rgb(255, 252, 247 / 85%);
     color: #806b56;
     font-size:0.8rem;
-    font-weight:800,
-    text-align:center;
+    font-weight: 800;
+    text-align: center;
     transform: translateX(-50%);
 }
 
@@ -125,4 +134,251 @@ h1 {
 
 .decline:hover {
     background: #f2e6d9;
+}
+
+.cookie {
+    position: absolute;
+    width: 20%;
+    height: auto;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.45) rotate(-12deg);
+    transition: opacity 350ms ease, transform 350ms cubic-bezier(.2, .8, .2, 1.2);
+}
+
+.cookie on-plate {
+    opacity: 1;
+    transform: translate(-50%,-50%) scale(1) rotate(var(--tilt));
+}
+
+.cookie:nth-of-type(2){left:40%; top: 43%;}
+.cookie:nth-of-type(3){left:57%; top: 43%;}
+.cookie:nth-of-type(4){left:48%; top: 58%;}
+.cookie:nth-of-type(5){left:33%; top: 57%;}
+.cookie:nth-of-type(6){left:64%; top: 67%;}
+
+.controls {
+    position: absolute;
+    z-index: 4;
+    bottom: 7%;
+    left: 50%;
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    max-width: 90%;
+    transform: translateX(-50%);
+}
+
+.controls[hidden],
+.dialogue[hidden] {
+    display:none;
+}
+
+.guy {
+    position: fixed;
+    z-index: 3;
+    right: max(2vw, 12px);
+    bottom: 0;
+    width: clamp(170px, 26vw, 330px);
+    height: min(57vh, 500px);
+    object-fit: contain;
+    object-position: bottom right;
+    opacity: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 12px 12px rgb(56 41 31 / 12%));
+    transition: opacity 500 ms ease;
+}
+
+.guy.visible {
+    opacity: 1;
+}
+
+.speech {
+    position: fixed;
+    z-index: 5;
+    right: max(2vw, 12px);
+    bottom: calc(min(57vh, 500 px) + 12px);
+    width: min(270px, 32vw);
+    padding: 16px 18px;
+    border: 2px solid #39281f;
+    border-radius: 20px;
+    background-color: #fffdf9;
+    box-shadow: 0 px 20 px rgb(56 41 31 / 12%);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.35;
+    opacity: 0;
+    pointer-events: none;
+    transform: opacity 180ms ease, transform 180ms ease;
+}
+
+.speech.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.dialogue {
+    position: fixed;
+    z-index: 10;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow-y: auto;
+    padding: 24px;
+    background: rgb(45 32 23 / 48%);
+}
+
+.dialogue-card {
+    width: min(100%, 430px);
+    padding: 30px;
+    border: 1px solid #ead8c5;
+    border-radius: 24px;
+    background: #fffaf4;
+    box-shadow: 0 24px 70px rgb(38 26 18 / 25%);
+    text-align: center;
+}
+
+.dialogue-card h2 {
+    margin: 0 0 10px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+}
+
+.dialogue-card p {
+    margin: 0;
+    color: #735f4e;
+    line-height: 1.5;
+}
+
+.dialogue-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.dialogue-actions button {
+    padding: 12px 22px;
+}
+
+.small-note {
+    position: fixed;
+    z-index: 2;
+    bottom: 2%;
+    left: 50%;
+    width: max-content;
+    max-width: 80%;
+    margin: 0;
+    color: #927d68;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+@media (max-width:600px) {
+    body {
+        overflow: auto;
+    }
+}
+
+.intro {
+    top: 6%;
+}
+
+.header{
+    font-size: 0.7rem;
+}
+
+.intro p:last-child {
+    margin-top: 12px;
+}
+
+.counter {
+    top: 37%;
+}
+
+.serving{
+    top: 66%;
+    width: min(90vw, 520px)
+}
+
+.cookie {
+    width: 20%;
+}
+
+.guy {
+    right: -14px;
+    max-width: clamp(145px, 37vw, 220px);
+    height:36vh
+}
+
+.speech {
+    right: 10px;
+    bottom: 52vh;
+    width: min(200px, 52vw);
+    padding: 12px 14px;
+}
+
+.controls {
+    position: fixed;
+    bottom: max(8%, 36px);
+    gap: 9px;
+}
+
+button {
+    padding: 13px 20px;
+    font-size: 0.9rem;
+}
+
+.small-note {
+    bottom: 2%;
+    width: 80%;
+}
+
+@media (max-wifth: 380px) {
+    .intro {
+        width: 94%;
+    }
+}
+
+.serving {
+    top: 66%;
+    width: 96vw;
+}
+
+.guy {
+    width: 145px;
+    height: 32vh;
+}
+
+.speech {
+    right: 8px;
+    bottom: 52vh;
+    width: min(185px, 54vw);
+}
+
+@media (max-height: 560px) and (min-width:600px) {
+    body {
+        overflow: auto;
+    }
+}
+
+.controls {
+    bottom: 9%;
+}
+
+.intro {
+    top: 62%;
+    width: min(48vw, 500px);
+}
+
+.guy {
+    height: 47vh;
+}
+
+.control {
+    bottom: 4%
 }
