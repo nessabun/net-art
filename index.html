@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Really Cool Website</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -31,7 +31,27 @@
 
     <p class="small-note">Totally standard site data. Definitely not a trap.</p>
 
-    <script src="cookie.js"></script>
+<!-- is it dialogue or dialog? maybe i'm too colonized -->
+    <section class="dialogue" id="consent-dialogue" role="dialoguebox">
+        <div class="dialogue-card">
+            <h2 id="consent-title">A quick note</h2>
+            <p>We use cookies to improve your experience with us. By accepting, you consent to our use of cookies.</p>
+        </div class="dialogue-actions">
+        <button class="accept" id="consent-accept" type="button">Accept</button>
+        <button class="decline" id="consent-decline" type="button">Decline</button>
+        </div>
+        </div>
+    </section>
+
+<section class="dialogue" id="dialogue" role="dialoguebox">
+    <div class="dialogue-card">
+        <h2 id="dialogue-title">Are you sure?</h2>
+        <p id="dialogue-copy"></p>
+        <div class="dialogue-actions" id="dialogue-actions"></div>
+    </div>
+</section>
+
+ <script src="js/cookie.js" defer></script>
 </body>
 
 </html>
