@@ -17,12 +17,12 @@
 
     <p class="counter" id="cookie-count">Cookies: 0/5</p>
 
-    <div class="serving" id="serving">
-        <img src="images/plate.png">
+    <div class="serving" id="serving" aria-label="Cookie plate">
+        <img class="plate" src="images/plate.png" alt="An empty white plate">
     </div>
 
-    <div class="speech" id="speech"></div>
-    <img class="guy" id="guy" src="images/guy1.png">
+    <div class="speech" id="speech" aria-live="polite"></div>
+    <img class="guy" id="guy" src="images/guy1.png" alt="A friendly cookie server">
 
     <div class="controls" id="controls" hidden>
         <button class="accept" id="accept-button" type="button">Accept cookies</button>
@@ -32,24 +32,24 @@
     <p class="small-note">Totally standard site data. Definitely not a trap.</p>
 
 <!-- is it dialogue or dialog? maybe i'm too colonized -->
-    <section class="dialogue" id="consent-dialogue" role="dialoguebox">
+    <section class="dialogue" id="consent-dialogue" role="dialog" aria-modal="true" aria-labelledby="consent-title">
         <div class="dialogue-card">
             <h2 id="consent-title">A quick note</h2>
             <p>We use cookies to improve your experience with us. By accepting, you consent to our use of cookies.</p>
-        </div class="dialogue-actions">
-        <button class="accept" id="consent-accept" type="button">Accept</button>
-        <button class="decline" id="consent-decline" type="button">Decline</button>
-        </div>
+            <div class="dialogue-actions">
+                <button class="accept" id="consent-accept" type="button">Accept</button>
+                <button class="decline" id="consent-decline" type="button">Decline</button>
+            </div>
         </div>
     </section>
 
-<section class="dialogue" id="dialogue" role="dialoguebox">
-    <div class="dialogue-card">
-        <h2 id="dialogue-title">Are you sure?</h2>
-        <p id="dialogue-copy"></p>
-        <div class="dialogue-actions" id="dialogue-actions"></div>
-    </div>
-</section>
+    <section class="dialogue" id="dialogue" role="dialog" aria-modal="true" aria-labelledby="dialogue-title" hidden>
+        <div class="dialogue-card">
+            <h2 id="dialogue-title">Are you sure?</h2>
+            <p id="dialogue-copy"></p>
+            <div class="dialogue-actions" id="dialogue-actions"></div>
+        </div>
+    </section>
 
  <script src="js/cookie.js" defer></script>
 </body>

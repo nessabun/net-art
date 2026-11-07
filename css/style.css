@@ -18,6 +18,10 @@ body {
     box-sizing: border-box;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 .intro {
     position: absolute;
     z-index: 1;
@@ -37,7 +41,7 @@ body {
     text-transform: uppercase;
 }
 
-.button {
+button {
     border: 0;
     border-radius: 1000rem;
     padding: 14px 28px;
@@ -48,7 +52,7 @@ body {
     transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
 }
 
-.button:hover {
+button:hover {
     transform: translateY(-2px);
 }
 
@@ -61,7 +65,7 @@ h1 {
     margin: 0;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: clamp(2.5rem, 6vw, 4.7rem);
-    line-height: 1.5;
+    line-height: 0.98;
     letter-spacing: -0.02em;
 }
 
@@ -111,8 +115,8 @@ h1 {
     aspect-ratio: 1.75;
     opacity: 0;
     pointer-events: none;
-    transform: translate (-50%, -50%) scale(0.92);
-    transition: opacity 400 ms ease, transform 400ms ease;
+    transform: translate(-50%, -50%) scale(0.92);
+    transition: opacity 400ms ease, transform 400ms ease;
 }
 
 .accept {
@@ -145,7 +149,7 @@ h1 {
     transition: opacity 350ms ease, transform 350ms cubic-bezier(.2, .8, .2, 1.2);
 }
 
-.cookie on-plate {
+.cookie.on-plate {
     opacity: 1;
     transform: translate(-50%,-50%) scale(1) rotate(var(--tilt));
 }
@@ -187,7 +191,7 @@ h1 {
     opacity: 0;
     pointer-events: none;
     filter: drop-shadow(0 12px 12px rgb(56 41 31 / 12%));
-    transition: opacity 500 ms ease;
+    transition: opacity 500ms ease;
 }
 
 .guy.visible {
@@ -198,19 +202,20 @@ h1 {
     position: fixed;
     z-index: 5;
     right: max(2vw, 12px);
-    bottom: calc(min(57vh, 500 px) + 12px);
+    bottom: calc(min(57vh, 500px) + 10px);
     width: min(270px, 32vw);
     padding: 16px 18px;
     border: 2px solid #39281f;
     border-radius: 20px;
     background-color: #fffdf9;
-    box-shadow: 0 px 20 px rgb(56 41 31 / 12%);
+    box-shadow: 0 8px 20px rgb(56 41 31 / 12%);
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: clamp(1rem, 2vw, 1.1rem);
     line-height: 1.35;
     opacity: 0;
     pointer-events: none;
-    transform: opacity 180ms ease, transform 180ms ease;
+    transform: translateY(8px) scale(0.97);
+    transition: opacity 180ms ease, transform 180ms ease;
 }
 
 .speech.visible {
@@ -282,103 +287,104 @@ h1 {
     body {
         overflow: auto;
     }
+
+    .intro {
+        top: 6%;
+    }
+
+    .header {
+        font-size: 0.7rem;
+    }
+
+    .intro p:last-child {
+        margin-top: 12px;
+    }
+
+    .serving {
+        width: min(90vw, 520px);
+    }
+
+    .cookie {
+        width: 20%;
+    }
+
+    .guy {
+        right: -14px;
+        width: clamp(145px, 37vw, 220px);
+        height: 36vh;
+    }
+
+    .speech {
+        right: 10px;
+        bottom: calc(36vh + 10px);
+        width: min(200px, 52vw);
+        padding: 12px 14px;
+    }
+
+    .controls {
+        position: fixed;
+        bottom: max(8%, 36px);
+        gap: 9px;
+    }
+
+    button {
+        padding: 13px 20px;
+        font-size: 0.9rem;
+    }
+
+    .small-note {
+        width: 80%;
+    }
 }
 
-.intro {
-    top: 6%;
-}
-
-.header{
-    font-size: 0.7rem;
-}
-
-.intro p:last-child {
-    margin-top: 12px;
-}
-
-.counter {
-    top: 37%;
-}
-
-.serving{
-    top: 66%;
-    width: min(90vw, 520px)
-}
-
-.cookie {
-    width: 20%;
-}
-
-.guy {
-    right: -14px;
-    max-width: clamp(145px, 37vw, 220px);
-    height:36vh
-}
-
-.speech {
-    right: 10px;
-    bottom: 52vh;
-    width: min(200px, 52vw);
-    padding: 12px 14px;
-}
-
-.controls {
-    position: fixed;
-    bottom: max(8%, 36px);
-    gap: 9px;
-}
-
-button {
-    padding: 13px 20px;
-    font-size: 0.9rem;
-}
-
-.small-note {
-    bottom: 2%;
-    width: 80%;
-}
-
-@media (max-wifth: 380px) {
+@media (max-width: 380px) {
     .intro {
         width: 94%;
     }
-}
 
-.serving {
-    top: 66%;
-    width: 96vw;
-}
+    .serving {
+        width: 96vw;
+    }
 
-.guy {
-    width: 145px;
-    height: 32vh;
-}
+    .guy {
+        width: 145px;
+        height: 32vh;
+    }
 
-.speech {
-    right: 8px;
-    bottom: 52vh;
-    width: min(185px, 54vw);
-}
+    .speech {
+        right: 8px;
+        bottom: calc(32vh + 10px);
+        width: min(185px, 54vw);
+    }
 
-@media (max-height: 560px) and (min-width:600px) {
-    body {
-        overflow: auto;
+    .controls {
+        bottom: 9%;
     }
 }
 
-.controls {
-    bottom: 9%;
-}
+@media (max-height: 560px) and (min-width: 600px) {
+    body {
+        overflow: auto;
+    }
 
-.intro {
-    top: 62%;
-    width: min(48vw, 500px);
-}
+    .intro {
+        top: 4%;
+    }
 
-.guy {
-    height: 47vh;
-}
+    .serving {
+        top: 62%;
+        width: min(48vw, 500px);
+    }
 
-.control {
-    bottom: 4%
+    .guy {
+        height: 47vh;
+    }
+
+    .speech {
+        bottom: calc(47vh + 10px);
+    }
+
+    .controls {
+        bottom: 4%;
+    }
 }
